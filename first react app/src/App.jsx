@@ -43,10 +43,22 @@ function App() {
             <div key={index} className='project-item'>
               <h3>{project.title}</h3>
               <h3>{project.description}</h3>
+              <a href={project.link} target='blank' rel='noopener noreferrer'>View Project</a>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id='contact' className='contact-section'>
+        <h2>Contact Me</h2>
+        <p>If you would like to get in touch fell free to email at <a href='mailto:john@gmail.com'>john@gmail.com</a></p>
+      </section>
+
+      {/* Footer Section */}
+      <footer className='footer'>
+        <p>2025. All rights reserved</p>
+      </footer>
    </div>
   );
 }
