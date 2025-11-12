@@ -3,13 +3,14 @@ import ProfileCard from './components/ProfileCard';
 
 function App() {
 
+  const handleHobbyClick=(hobby)=>{
+    alert(`You clicked on: ${hobby}`)
+  }
   return (
     <div>
-      <h1>Hello</h1>
-      <ProfileCard name="Mike" age={25} isMember={true} hobbies={['Reading','cooking']}/>
-      <ProfileCard name="John" age="30" isMember={false} hobbies={['Swimming','Hiking']}/>
+      <ProfileCard name="Mike" age={25} isMember={true} hobbies={['Reading','cooking']} onHobbyClick={handleHobbyClick}/>
+      <ProfileCard name="John" age="30" isMember={false} hobbies={['Swimming','Hiking']} onHobbyClick={handleHobbyClick}/>
     </div>
   );
 }
-
 export default App;
