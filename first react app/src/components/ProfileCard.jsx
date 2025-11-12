@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 function ProfileCard({name, age,isMember,hobbies, onHobbyClick}) {
   return (
     <div>
