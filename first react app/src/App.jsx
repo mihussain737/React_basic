@@ -1,14 +1,15 @@
-import './App.css'
+import './App.css';
 import ProfileCard from './components/ProfileCard';
 
 function App() {
 
-  // API call-> fetching name from the server
-  return(
+  return (
     <div>
-      <ProfileCard name="Mike" isMember="true"/>
-      <ProfileCard name="John" isMember={false}/>
+      <h1>Hello</h1>
+      <ProfileCard name="Mike" age={25} isMember={true} hobbies={['Reading','cooking']}/>
+      <ProfileCard name="John" age="30" isMember={false} hobbies={['Swimming','Hiking']}/>
     </div>
   );
 }
+
 export default App;
