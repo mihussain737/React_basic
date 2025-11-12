@@ -6,8 +6,8 @@ function App() {
   // API call-> fetching name from the server
   return(
     <div>
-      <ProfileCard name="Mike"/>
-      <ProfileCard name="John"/>
+      <ProfileCard name="Mike" isMember="true"/>
+      <ProfileCard name="John" isMember={false}/>
     </div>
   );
 }
