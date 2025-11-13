@@ -1,23 +1,22 @@
 import './App.css';
-import ProfileCard from './components/ProfileCard';
-
+import { useState } from 'react';
 function App() {
+  const [count,setCount]=useState(0);
 
-  const handleHobbyClick=(hobby)=>{
-    alert(`You clicked on: ${hobby}`)
+  const incrementCount=()=>{
+    setCount(count+1);
   }
 
-  const AliceProfile={
-    name:"Mike", age:25, isMember:true, hobbies:['Reading','cooking'], onHobbyClick:handleHobbyClick
+  const decrementCount=()=>{
+    setCount(count-1)
   }
-  const JohnProfile={
-    name:"John", age:30, isMember:false, hobbies:['Swimming','Hiking'], onHobbyClick:handleHobbyClick
-  }
-  return (
-    <div>
-      <ProfileCard {...AliceProfile}/>
-      <ProfileCard {...JohnProfile}/>
+  
+  return(
+    <div className='app-container'>
+      <h1>Counter Value:{count}</h1>
+      <button onClick={incrementCount}>Increment</button>
+      <button onClick={decrementCount}>Decrement</button>
     </div>
-  );
+  )
 }
 export default App;
