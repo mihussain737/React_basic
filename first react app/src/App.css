@@ -1,0 +1,27 @@
+.app-container{
+     text-align: center;
+     color: darkblue;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+     margin: 5px;
+     background-color: rgb(29, 29, 156);
+     border-radius: 2px;
+     border:none;
+     padding: 5px 10px;
+     color: white;
+     cursor: pointer;
+}
+
+button:hover{
+     background-color: darkblue;
+}
+
+input{
+     width: 50px;
+     padding: 5px;
+     margin: 10px;
+     border: 1px solid #ccc;
+     border-radius: 2px;
+}
