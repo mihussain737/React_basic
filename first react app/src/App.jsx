@@ -11,6 +11,13 @@ function App() {
   const decrementCount=()=>{
     setCount(count-step)
   }
+
+  const incrementTwice=()=>{
+    // setCount(count+1);
+    // setCount(count+1);
+    setCount(prevCount=>prevCount+1);
+    setCount(prevCount=>prevCount+1);
+  };
   
   return(
     <div className='app-container'>
@@ -18,6 +25,7 @@ function App() {
       <input type="number" value={step} onChange={(e)=>setStep(parseInt(e.target.value))}/>
       <button onClick={incrementCount}>Increment</button>
       <button onClick={decrementCount}>Decrement</button>
+      <button onClick={incrementTwice}>+2</button>
     </div>
   )
 }
