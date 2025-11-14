@@ -10,6 +10,7 @@ const UseEffect = () => {
 
      const incrementCount=()=>{
           setcount(count+1);
+          // document.title=`Count: ${count +1}`;
      }
   return (
     <div><h1>UseEffect</h1>
