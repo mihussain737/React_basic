@@ -9,12 +9,12 @@ const UseEffect = () => {
           document.title=`Count: ${count +1}`;
           console.log("use effect triggered");
      },[count])
-
+     /*
      useEffect(()=>{
           document.title=`Count: ${count +1}`;
           console.log("use effect triggered");
-     })
-
+          // without dependency arrays
+     })*/
      const incrementCount=()=>{
           setcount(count+1);
      }
