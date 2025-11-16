@@ -7,8 +7,6 @@ import UseEffect from './UseEffect.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    {/* <StateApp></StateApp> */}
-    <UseEffect></UseEffect>
+    <App />
   </StrictMode>,
 )
