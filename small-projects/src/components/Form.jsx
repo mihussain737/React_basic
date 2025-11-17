@@ -15,9 +15,9 @@ const Form = () => {
 
           setFormData({
                ...formData,
-               [name]: type==='checkbox'? checked: value
-          })
-     }
+               [name]: type=='checkbox'? checked: value
+          });
+     };
   return (
     <div className='form-container'>
           <h1>Form Example</h1>
@@ -31,18 +31,18 @@ const Form = () => {
 
                     <div className='form-field'>
                          <label>Checkbox:</label>
-                         <input type="checkbox" name='checkbox' value={formData.checkbox} onChange={handleChange}/>
+                         <input type="checkbox" name='checkbox' checked={formData.checkbox} onChange={handleChange}/>
                     </div>
 
                     <div className='form-field'>
                          <label>Option1</label>
-                         <input type="radio" name='radio' value={formData.radio==='option1'} onChange={handleChange}/>
+                         <input type="radio" name='radio' value="option1" checked={formData.radio==='option1'} onChange={handleChange}/>
                          <label>Option2</label>
-                         <input type="radio" name='radio' value={formData.radio==='option2'} onChange={handleChange}/>
+                         <input type="radio" name='radio' value="option2" checked={formData.radio==='option2'} onChange={handleChange}/>
                     </div>
                     
                     <div className='form-field'>
-                         <select name="select" id="">
+                         <select name="select" id="" value={formData.select} onChange={handleChange}>
                               <option value="">Please choose an option</option>
                               <option value="select1">Select1</option>
                               <option value="select2">Select2</option>
@@ -52,6 +52,9 @@ const Form = () => {
                     <div className='form-data'>
                          <h3>Form Data</h3>
                          <p><strong>Text:</strong>{formData.text ||'N/A'}</p>
+                         <p><strong>Checkbox:</strong>{formData.checkbox?"Checked":"Unchecked"}</p>
+                         <p><strong>Radio:</strong>{formData.radio||'N/A'}</p>
+                         <p><strong>Select:</strong>{formData.select || 'N/A'}</p>
                     </div>
                </div>
           </form>
