@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import DigitalClock from './components/DigitalClock'
 import Portfolio from './components/Portfolio'
+import Form from './components/Form'
+import ColorPicker from './components/ColorPicker'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +13,9 @@ function App() {
   return (
     <>
       {/* <DigitalClock></DigitalClock> */}
-      <Portfolio></Portfolio>
+      {/* <Portfolio></Portfolio> */}
+      {/* <Form></Form> */}
+      <ColorPicker></ColorPicker>
     </>
   )
 }
