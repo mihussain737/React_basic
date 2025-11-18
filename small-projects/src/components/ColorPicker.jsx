@@ -23,7 +23,6 @@ const ColorPicker = () => {
            }
         </div>
       </div>
-      
     </div>
   )
 }
