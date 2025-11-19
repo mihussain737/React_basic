@@ -7,6 +7,7 @@ import DestructuringProps from './components/DestructuringProps'
 import UseRef from './components/UseRef';
 import UseRefWithHtml from './components/UseRefWithHtml';
 import PropDrilling from './components/PropDrilling';
+import ContextExample from './components/ContextExample';
 
 function App() {
   const person={name:"Imam", age:34}
@@ -22,7 +23,8 @@ function App() {
       {/* <Form></Form> */}
       {/* <UseRef></UseRef> */}
       {/* <UseRefWithHtml></UseRefWithHtml> */}
-      <PropDrilling></PropDrilling>
+      {/* <PropDrilling></PropDrilling> */}
+      <ContextExample/>
     </div>
   );
 }
