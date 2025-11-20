@@ -1,14 +1,18 @@
 import React, { createContext, useContext } from 'react';
 
-const themeContext=createContext("light");
+const ThemeContext = createContext("light");
+
 const ContextExample = () => {
   return (
-    <div style={{border:'2px solid black',padding:20}}>
-      <h2>App (Parent)</h2>
-      <ComponentA/>
-    </div>
-  )
-}
+    <ThemeContext.Provider value="dark">
+      <div style={{ border: "2px solid black", padding: 20 }}>
+        <h2>App (Parent)</h2>
+        <ComponentA />
+      </div>
+    </ThemeContext.Provider>
+  );
+};
+
 
 function ComponentA(){
   return(
@@ -29,7 +33,7 @@ function ComponentB(){
 }
 
 function ThemeComponent(){
-  const theme =useContext(themeContext);
+  const theme =useContext(ThemeContext);
   return(
     <div style={{border:'2px solid yellow',padding:20}}>
       <h2>ThemeComponent(Great-GrandChild)</h2>
