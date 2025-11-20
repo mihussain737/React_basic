@@ -3,20 +3,27 @@ import React, { createContext, useContext, useState } from 'react';
 const ThemeContext = createContext("light");
 
 const ContextExample = () => {
-  
+
   const [theme , setTheme]=useState('light');
   const toggleTheme=()=>{
     setTheme(prevTheme=>(prevTheme)=='light'?'dark':'light');
   };
   
   return (
-    <ThemeContext.Provider value={theme}>
+    <div>
+      <GlobalComponent/>
+      <ThemeContext.Provider value={theme}>
       <div style={{ border: "2px solid black", padding: 20 }}>
         <h2>App (Parent)</h2>
         <button onClick={toggleTheme}>Toggle Theme</button>
         <ComponentA />
       </div>
     </ThemeContext.Provider>
+
+    <ThemeContext.Provider value='kariya'>
+      <GlobalComponent/>
+    </ThemeContext.Provider>
+    </div>
   );
 };
 
@@ -44,6 +51,16 @@ function ThemeComponent(){
   return(
     <div style={{border:'2px solid yellow',padding:20}}>
       <h2>ThemeComponent(Great-GrandChild)</h2>
+      <div>The Current theme is:{theme}</div>
+    </div>
+  )
+}
+
+function GlobalComponent(){
+  const theme =useContext(ThemeContext);
+  return(
+    <div style={{border:'2px solid blue',padding:20}}>
+      <h2>GlobalComponent(Great-GrandChild)</h2>
       <div>The Current theme is:{theme}</div>
     </div>
   )
