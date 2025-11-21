@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import CustomHooks from './components/CustomHooks'
+import ApiWork from './components/ApiWork'
 
 function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-      <CustomHooks></CustomHooks>
+      {/* <CustomHooks></CustomHooks> */}
+      <ApiWork></ApiWork>
     </div>
   )
 }
 
 export default App
+ 
