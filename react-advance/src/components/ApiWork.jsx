@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 
 const ApiWork = () => {
      const [data,setData]=useState([])
+     
      useEffect(()=>{
      fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
