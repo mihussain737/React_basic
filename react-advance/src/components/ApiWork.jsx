@@ -3,13 +3,23 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 const ApiWork = () => {
-     const [data,setData]=useState([])
-     
+     const [data,setData]=useState([]);
+     const [loading,setLoading]=useState(false);
+
+
      useEffect(()=>{
+          setLoading(true);
      fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
-      .then(json => setData(json));
+      .then(json => {
+          setData(json);
+          setLoading(false);
+      })
      },[]);
+
+     if(loading){
+          return <>Loading...</>
+     }
   return (
     <div>
      <h1>APIs</h1>
