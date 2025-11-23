@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 const ApiWork = () => {
      const [data,setData]=useState([]);
      const [loading,setLoading]=useState(false);
+     const [error,setError]=useState(null);
 
 
      useEffect(()=>{
@@ -14,11 +15,19 @@ const ApiWork = () => {
       .then(json => {
           setData(json);
           setLoading(false);
+          throw new Error('Something went wrong');
+      }).catch(error=>{
+          console.error(`Error fetching data:`,error);
+          setError('Failed to fetch the data')
       })
      },[]);
 
      if(loading){
           return <>Loading...</>
+     }
+
+     if(error){
+          return <p>{error}</p>
      }
   return (
     <div>
