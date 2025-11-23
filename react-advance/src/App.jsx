@@ -3,6 +3,7 @@ import './App.css'
 import CustomHooks from './components/CustomHooks'
 import ApiWork from './components/ApiWork'
 import AxiosDemo from './components/AxiosDemo'
+import PostApi from './components/PostApi'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,7 +11,8 @@ function App() {
     <div>
       {/* <CustomHooks></CustomHooks> */}
       {/* <ApiWork></ApiWork> */}
-      <AxiosDemo></AxiosDemo>
+      {/* <AxiosDemo></AxiosDemo> */}
+      <PostApi></PostApi>
     </div>
   )
 }
