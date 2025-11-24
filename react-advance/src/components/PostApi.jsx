@@ -1,17 +1,24 @@
 import axios from 'axios'
 import React, { useState } from 'react';
 
-axios.interceptors.request.use(request=>{
+const api=axios.create({
+     baseURL:'https://jsonplaceholder.typicode.com',
+     headers:{
+          'Authorization':'Bearer <TOKEN>'
+     }
+});
+
+api.interceptors.request.use(request=>{
      console.log('starting request', request);
      return request;
 });
 
-axios.interceptors.response.use(response=>{
+api.interceptors.response.use(response=>{
      console.log("Response", response)
      return response;
 })
 const PostApi = () => {
-     const [data,setData]=useState();
+     const [data,setData]=useState(); 
      const handleSubmit=(event)=>{
           event.preventDefault();
           const newPost={
@@ -19,7 +26,7 @@ const PostApi = () => {
                body:"test body",
                userId:1
           }
-          axios.post('https://jsonplaceholder.typicode.com/posts',newPost)
+          api.post('/posts',newPost)
           .then((response)=>{
                console.log(response.data);
                setData([response.data])
