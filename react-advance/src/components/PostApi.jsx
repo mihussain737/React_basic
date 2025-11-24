@@ -1,6 +1,15 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
+axios.interceptors.request.use(request=>{
+     console.log('starting request', request);
+     return request;
+});
+
+axios.interceptors.response.use(response=>{
+     console.log("Response", response)
+     return response;
+})
 const PostApi = () => {
      const [data,setData]=useState();
      const handleSubmit=(event)=>{
