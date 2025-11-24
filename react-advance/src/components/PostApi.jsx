@@ -1,22 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react';
+import api from '../Utils/Api';
 
-const api=axios.create({
-     baseURL:'https://jsonplaceholder.typicode.com',
-     headers:{
-          'Authorization':'Bearer <TOKEN>'
-     }
-});
-
-api.interceptors.request.use(request=>{
-     console.log('starting request', request);
-     return request;
-});
-
-api.interceptors.response.use(response=>{
-     console.log("Response", response)
-     return response;
-})
 const PostApi = () => {
      const [data,setData]=useState(); 
      const handleSubmit=(event)=>{
@@ -28,7 +13,7 @@ const PostApi = () => {
           }
           api.post('/posts',newPost)
           .then((response)=>{
-               console.log(response.data);
+               console.log("New post Added ",response.data);
                setData([response.data])
           });
      };
