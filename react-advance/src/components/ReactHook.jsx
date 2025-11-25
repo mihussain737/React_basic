@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form';
 
 const ReactHook = () => {
 
-     const {register,handleSubmit,watch}=useForm();
+     const {register,handleSubmit,watch,formState:{errors}}=useForm();
 
      const onSubmit=(data)=> console.log(data);
 
@@ -28,11 +28,14 @@ const ReactHook = () => {
           <label>
                Name:
           </label>
-          <input {...register('name')} />
+          <input {...register('name', {required:true ,minLength:2})} />
           <label>
+          {errors.name && <p>Name is Required and should be atleaset 2 char</p>}
+          
                Email:
           </label>
-          <input {...register('email')} />
+          <input {...register('email',{required:true ,minLength:5})} />
+          {errors.email && <p>Email is Required and should be atleaset 5 char</p>}
           <button type='submit'>Submit</button>
      </form>
     </div>
