@@ -7,12 +7,37 @@ const ReactHook = () => {
           name:'',
           email:''
      })
+
+     const [errors,setErrors]=useState({});
+
+     const validate=()=>{
+          const newErrors={};
+          if(!formData.name.trim()){
+               newErrors.name='Name is Required'
+          }
+
+          return newErrors;
+     }
+
      const handleSubmit=(e)=>{
           e.preventDefault();
-          console.log('form data submited ',formData);
+          const validationErrors=validate();
+          if(Object.keys(validationErrors).length>0){
+               setErrors(validationErrors);
+          }else{
+               console.log('form data submited ',formData);
+          }
+          
      };
      const handleChange=(e)=>{
+          const {name,value}=e.target;
           setFormData({...formData ,[e.target.name]:[e.target.value], [e.target.name]:[e.target.value]})
+
+          if(errors[name]){
+               const newErrors={...errors};
+               delete newErrors[name];
+               setErrors(newErrors)
+          }
      };
 
   return (
@@ -24,7 +49,8 @@ const ReactHook = () => {
                Name:
           </label>
           <input type="text" name='name' value={formData.name}  onChange={handleChange} />
-
+          {errors.name &&<span style={{color:'red'}}>{errors.name}</span>}
+          <br />
           <label>
                Email:
           </label>
