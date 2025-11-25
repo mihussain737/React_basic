@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../css/ReactHook.css'
 import {useForm} from 'react-hook-form';
 
 const ReactHook = () => {
 
-     const {register,handleSubmit}=useForm();
+     const {register,handleSubmit,watch}=useForm();
 
-     const onSubmit=(data)=> console.log(data)
+     const onSubmit=(data)=> console.log(data);
+
+     // console.log(watch('name'));
+     const watchedName=watch('name');
+     const watchedEmail=watch('email');
+
+     useEffect(()=>{
+          console.log('Name ',watchedName);
+     },[watchedName]);
+
+     useEffect(()=>{
+          console.log('Email ',watchedEmail);
+     },[watchedEmail])
 
   return (
     <div>
