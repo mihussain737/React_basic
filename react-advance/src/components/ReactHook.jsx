@@ -1,61 +1,26 @@
 import React, { useState } from 'react'
 import '../css/ReactHook.css'
+import {useForm} from 'react-hook-form';
 
 const ReactHook = () => {
 
-     const [formData, setFormData]=useState({
-          name:'',
-          email:''
-     })
+     const {register,handleSubmit}=useForm();
 
-     const [errors,setErrors]=useState({});
-
-     const validate=()=>{
-          const newErrors={};
-          if(!formData.name.trim()){
-               newErrors.name='Name is Required'
-          }
-
-          return newErrors;
-     }
-
-     const handleSubmit=(e)=>{
-          e.preventDefault();
-          const validationErrors=validate();
-          if(Object.keys(validationErrors).length>0){
-               setErrors(validationErrors);
-          }else{
-               console.log('form data submited ',formData);
-          }
-          
-     };
-     const handleChange=(e)=>{
-          const {name,value}=e.target;
-          setFormData({...formData ,[e.target.name]:[e.target.value], [e.target.name]:[e.target.value]})
-
-          if(errors[name]){
-               const newErrors={...errors};
-               delete newErrors[name];
-               setErrors(newErrors)
-          }
-     };
+     const onSubmit=(data)=> console.log(data)
 
   return (
     <div>
      <h1>Forms in React</h1>
 
-     <form onSubmit={handleSubmit}>
+     <form onSubmit={handleSubmit(onSubmit)}>
           <label>
                Name:
           </label>
-          <input type="text" name='name' value={formData.name}  onChange={handleChange} />
-          {errors.name &&<span style={{color:'red'}}>{errors.name}</span>}
-          <br />
+          <input {...register('name')} />
           <label>
                Email:
           </label>
-          <input type="email" name='email' value={formData.email}  onChange={handleChange} />
-
+          <input {...register('email')} />
           <button type='submit'>Submit</button>
      </form>
     </div>
