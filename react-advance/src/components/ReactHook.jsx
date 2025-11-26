@@ -28,14 +28,17 @@ const ReactHook = () => {
           <label>
                Name:
           </label>
-          <input {...register('name', {required:true ,minLength:2})} />
+          {/* <input {...register('name', {required:true ,minLength:2})} /> */}
+          <input {...register('name', 
+               {required:"Name is Required" ,minLength: {value:4, message:"Name should be at least 4 char"}}
+               )} />
           <label>
-          {errors.name && <p>Name is Required and should be atleaset 2 char</p>}
+          {errors.name && <p>{errors.name.message}</p>}
           
                Email:
           </label>
-          <input {...register('email',{required:true ,minLength:5})} />
-          {errors.email && <p>Email is Required and should be atleaset 5 char</p>}
+          <input {...register('email',{required:"Email is required" ,minLength:{value:5, message:"Email should be atleast 5 char"}, pattern: {value:/^[^@]+@[^@]+\.[^@]+$/, message:"Email should be valid"} })} />
+          {errors.email && <p>{errors.email.message}</p>}
           <button type='submit'>Submit</button>
      </form>
     </div>
