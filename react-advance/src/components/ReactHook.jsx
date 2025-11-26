@@ -11,17 +11,11 @@ const ReactHook = () => {
           reset();
      }
 
-     // console.log(watch('name'));
-     // const watchedName=watch('name');
-     // const watchedEmail=watch('email');
-
-     // useEffect(()=>{
-     //      console.log('Name ',watchedName);
-     // },[watchedName]);
-
-     // useEffect(()=>{
-     //      console.log('Email ',watchedEmail);
-     // },[watchedEmail])
+     // const validateName=(value)=>{
+     //      if(value=='admin'){
+     //           return 'only admin is not allowed';
+     //      }
+     // }
 
   return (
     <div>
@@ -31,10 +25,17 @@ const ReactHook = () => {
           <label>
                Name:
           </label>
-          {/* <input {...register('name', {required:true ,minLength:2})} /> */}
           <input {...register('name', 
-               {required:"Name is Required" ,minLength: {value:4, message:"Name should be at least 4 char"}}
-               )} />
+               {
+                    required:"Name is Required" 
+                    ,minLength: {value:4, message:"Name should be at least 4 char"},
+                    // ,validate:validateName
+                    // ,validate:(value)=> value!=='admin'||'Admin is not allowed'
+                     validate: {
+                          notAdmin: (value) => value !== "admin" || "Admin is not allowed",
+                          isNotNumber: (value) => isNaN(value) || "Name cannot be number",
+                    }
+               })} />
           <label>
           {errors.name && <p>{errors.name.message}</p>}
           
