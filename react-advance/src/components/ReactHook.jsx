@@ -6,16 +6,16 @@ const ReactHook = () => {
 
      const {register,handleSubmit,reset,watch,formState:{errors}}=useForm();
 
+     const existingUsernames= ['admin','user123', 'john']
+      const checkIfUsername= async (username)=>{
+          await new Promise((resolve)=>setTimeout(resolve,1000));
+          return existingUsernames.includes(username);
+     };
+
      const onSubmit=(data)=> {
           console.log(data);
           reset();
      }
-
-     // const validateName=(value)=>{
-     //      if(value=='admin'){
-     //           return 'only admin is not allowed';
-     //      }
-     // }
 
   return (
     <div>
@@ -34,6 +34,10 @@ const ReactHook = () => {
                      validate: {
                           notAdmin: (value) => value !== "admin" || "Admin is not allowed",
                           isNotNumber: (value) => isNaN(value) || "Name cannot be number",
+                          checkUsername: async (value)=>{
+                              const exist=await checkIfUsername(value);
+                              return !exist || 'Username already taken'
+                          }
                     }
                })} />
           <label>
