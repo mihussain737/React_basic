@@ -4,21 +4,24 @@ import {useForm} from 'react-hook-form';
 
 const ReactHook = () => {
 
-     const {register,handleSubmit,watch,formState:{errors}}=useForm();
+     const {register,handleSubmit,reset,watch,formState:{errors}}=useForm();
 
-     const onSubmit=(data)=> console.log(data);
+     const onSubmit=(data)=> {
+          console.log(data);
+          reset();
+     }
 
      // console.log(watch('name'));
-     const watchedName=watch('name');
-     const watchedEmail=watch('email');
+     // const watchedName=watch('name');
+     // const watchedEmail=watch('email');
 
-     useEffect(()=>{
-          console.log('Name ',watchedName);
-     },[watchedName]);
+     // useEffect(()=>{
+     //      console.log('Name ',watchedName);
+     // },[watchedName]);
 
-     useEffect(()=>{
-          console.log('Email ',watchedEmail);
-     },[watchedEmail])
+     // useEffect(()=>{
+     //      console.log('Email ',watchedEmail);
+     // },[watchedEmail])
 
   return (
     <div>
@@ -40,6 +43,7 @@ const ReactHook = () => {
           <input {...register('email',{required:"Email is required" ,minLength:{value:5, message:"Email should be atleast 5 char"}, pattern: {value:/^[^@]+@[^@]+\.[^@]+$/, message:"Email should be valid"} })} />
           {errors.email && <p>{errors.email.message}</p>}
           <button type='submit'>Submit</button>
+          <button type='button' onClick={()=>reset()}>Reset</button>
      </form>
     </div>
   )
