@@ -4,7 +4,9 @@ import { useForm } from 'react-hook-form';
 
 const ReactHook = () => {
 
-  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, watch, formState: { errors } } = useForm({
+     mode:'onChange'
+  });
 
   const existingUsernames = ['admin', 'user123', 'john'];
 
