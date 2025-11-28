@@ -5,11 +5,14 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='bg-gray-100 justify-center items-center h-screen'>
-      <div className='bg-white p-8 rounded-l shadow-lg'>
-        <h1 className='text-2xl font-bold text-gray-700'>Hello, Tailwind css in React</h1>
-        <p className='text-gray-500'>This is a simple example using tailwind css in react project</p>
-      </div>
+    <div className='bg-gray-100 p-4'>
+      <ul className='list-none'>
+        <li className='bg-blue-500 text-white p-2 rounded-2xl'>Item 1</li>
+        <li className='bg-indigo-500 text-white p-2 rounded-xl'>Item 2</li>
+        <li className='bg-custom-blue text-white p-2 rounded-md'>Item 3</li>
+        <li className='bg-yellow-700 text-white p-2 rounded-sm'>Item 4</li>
+        <li className='bg-lime-600 text-white p-2 rounded-lg'>Item 4</li>
+      </ul>
     </div>
   )
 }
