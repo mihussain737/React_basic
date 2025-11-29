@@ -11,6 +11,7 @@ import Home from './components/Home'
 import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Team from './components/Team'
+import Notfound from './components/Notfound'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -44,6 +45,7 @@ function App() {
         </Route>
         {/* // /about/team => nested routes */}
         <Route path='/contact' element={<Contact/>}/>
+        <Route path='*' element={<Notfound/>}></Route>
       </Routes>
       </div>
     </Router>
