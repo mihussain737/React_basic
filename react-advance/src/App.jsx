@@ -5,6 +5,7 @@ import ApiWork from './components/ApiWork'
 import AxiosDemo from './components/AxiosDemo'
 import PostApi from './components/PostApi'
 import ReactHook from './components/ReactHook'
+import Routing from './components/Routing'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,8 @@ function App() {
       {/* <ApiWork></ApiWork> */}
       {/* <AxiosDemo></AxiosDemo> */}
       {/* <PostApi></PostApi> */}
-      <ReactHook/>
+      {/* <ReactHook/> */}
+      <Routing></Routing>
     </div>
   )
 }
