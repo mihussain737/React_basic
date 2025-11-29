@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Routes, Route,Link} from 'react-router-dom'
 import Home from './components/Home'
 import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
+import Team from './components/Team'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -38,7 +39,10 @@ function App() {
       <div className='container mx-auto pt-20'>
         <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/about' element={<AboutUs/>}/>
+        <Route path='/about' element={<AboutUs/>}>
+        <Route path='team' element={<Team/>}/>
+        </Route>
+        {/* // /about/team => nested routes */}
         <Route path='/contact' element={<Contact/>}/>
       </Routes>
       </div>
