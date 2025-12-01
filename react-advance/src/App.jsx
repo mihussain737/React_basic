@@ -41,7 +41,7 @@ function App() {
       </div>
       
       <div className='container mx-auto pt-20'>
-        <CurrentLocation></CurrentLocation>
+        <CurrentLocation></CurrentLocation>  {/*this is for the current location by useLocation react router dom */}
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<AboutUs/>}>
