@@ -13,6 +13,7 @@ import Contact from './components/Contact'
 import Team from './components/Team'
 import Notfound from './components/Notfound'
 import CurrentLocation from './components/CurrentLocation'
+import Dashboard from './components/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -49,6 +50,7 @@ function App() {
         {/* // /about/team => nested routes */}
         <Route path='/contact' element={<Contact/>}/>
         <Route path='*' element={<Notfound/>}></Route>
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
       </Routes>
       </div>
     </Router>
