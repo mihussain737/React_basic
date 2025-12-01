@@ -12,6 +12,7 @@ import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Team from './components/Team'
 import Notfound from './components/Notfound'
+import CurrentLocation from './components/CurrentLocation'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,7 +38,9 @@ function App() {
         </ul>
       </nav>
       </div>
+      
       <div className='container mx-auto pt-20'>
+        <CurrentLocation></CurrentLocation>
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<AboutUs/>}>
