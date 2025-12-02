@@ -6,6 +6,10 @@ const AboutUs = () => {
 
   const [searchParams,setSearchParams]=useSearchParams();
   const topic=searchParams.get("topic")|| "general";
+  const urlParams= new URLSearchParams(window.location.search);
+  const topicFromURL=urlParams.get("topic");
+  console.log("useSearchParams: " ,topic);
+  console.log("urlSearchParams: " ,topicFromURL);
   const handleTopic=(newTopic)=>{
     setSearchParams({topic:newTopic})
   };
